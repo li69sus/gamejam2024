@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class Score : MonoBehaviour
     void Start()
     {
         CurrentScore = 0;
+    }
+
+    void Update()
+    {
+        if (CurrentScore == -5)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
 }

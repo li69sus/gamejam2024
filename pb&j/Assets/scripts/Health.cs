@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CurrentHealth = MaxHealth;
         healthBar = healthBarUi.GetComponent<HealthBar>();
         healthBar.SetMaxHealth(MaxHealth);
     }
@@ -21,6 +23,9 @@ public class Health : MonoBehaviour
         if ( CurrentHealth > MaxHealth)
         {
             CurrentHealth = MaxHealth;
+        } else if (CurrentHealth == 0)
+        {
+            SceneManager.LoadScene(2);
         }
         healthBar.SetHealth(CurrentHealth);
     }

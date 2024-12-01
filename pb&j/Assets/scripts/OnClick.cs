@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OnClick : MonoBehaviour
 {
@@ -33,8 +34,12 @@ public class OnClick : MonoBehaviour
         }
         if ((Input.GetKeyDown(Arrow) || Input.GetKeyDown(Letter)) && !Touching)
         {
+            if (!Playing)
+            {
+                SceneManager.LoadScene(2);
+            }
             Player.GetComponent<Health>().CurrentHealth -= 1;
-            Player.GetComponent<Score>().CurrentScore += 5;
+            Player.GetComponent<Score>().CurrentScore -= 5;
         }
     }
     IEnumerator ClickedSpaceAtTheMoment()

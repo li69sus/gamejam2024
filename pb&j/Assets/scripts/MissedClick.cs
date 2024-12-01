@@ -9,5 +9,6 @@ public class MissedClick : MonoBehaviour
     {
         Destroy(collision.gameObject);
         Player.GetComponent<Health>().CurrentHealth -= 1;
+        Player.GetComponent<Score>().CurrentScore -= 5;
     }
 }
