@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
     {
         if (CurrentScore == -5)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
     }
 
