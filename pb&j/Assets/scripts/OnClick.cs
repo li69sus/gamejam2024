@@ -10,18 +10,24 @@ public class OnClick : MonoBehaviour
     public KeyCode Letter;
     public GameObject Player;
     public AudioSource OnHit;
+    private bool Playing;
 
     // Update is called once per frame
-    IEnumerator Start()
+    void Start()
     {
-        yield return new WaitForSecondsRealtime(0.90f);
-        OnHit.Play();
+        Playing = false;
+        //yield return new WaitForSecondsRealtime(0.90f);
+        //OnHit.Play();
     }
 
     void Update()
     {
         if ((Input.GetKeyDown(Arrow) || Input.GetKeyDown(Letter)) && Touching)
         {
+            if (!Playing){
+                OnHit.Play();
+                Playing = true;
+            }
             StartCoroutine(ClickedSpaceAtTheMoment());
         }
         if ((Input.GetKeyDown(Arrow) || Input.GetKeyDown(Letter)) && !Touching)
