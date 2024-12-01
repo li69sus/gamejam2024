@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    //public 
     // Start is called before the first frame update
     public void Reload()
     {
         SceneManager.LoadScene(0);
+        //gameOver.SetActive(false);
     }
 
 }

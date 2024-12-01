@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
             CurrentHealth = MaxHealth;
         } else if (CurrentHealth == 0)
         {
-            SceneManager.LoadScene(2);
+            //GameOverUI.SetActive(true);
         }
         healthBar.SetHealth(CurrentHealth);
     }

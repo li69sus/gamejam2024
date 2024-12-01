@@ -36,7 +36,7 @@ public class OnClick : MonoBehaviour
         {
             if (!Playing)
             {
-                SceneManager.LoadScene(2);
+                //GameOverUI.SetActive(true);
             }
             Player.GetComponent<Health>().CurrentHealth -= 1;
             Player.GetComponent<Score>().CurrentScore -= 5;
