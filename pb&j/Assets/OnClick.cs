@@ -7,23 +7,24 @@ public class OnClick : MonoBehaviour
     public bool ClickedSpace;
     public bool Touching;
     public KeyCode Arrow;
+    public KeyCode Letter;
     public GameObject Player;
     public AudioSource OnHit;
 
     // Update is called once per frame
     IEnumerator Start()
     {
-        yield return new WaitForSecondsRealtime(0.05f);
+        yield return new WaitForSecondsRealtime(0.90f);
         OnHit.Play();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(Arrow) && Touching)
+        if ((Input.GetKeyDown(Arrow) || Input.GetKeyDown(Letter)) && Touching)
         {
             StartCoroutine(ClickedSpaceAtTheMoment());
         }
-        if (Input.GetKeyDown(Arrow) && !Touching)
+        if ((Input.GetKeyDown(Arrow) || Input.GetKeyDown(Letter)) && !Touching)
         {
             Player.GetComponent<Health>().CurrentHealth -= 1;
         }
@@ -31,7 +32,7 @@ public class OnClick : MonoBehaviour
     IEnumerator ClickedSpaceAtTheMoment()
     {
         ClickedSpace = true;
-        yield return new WaitForSecondsRealtime(0.01f);
+        yield return new WaitForSecondsRealtime(0.05f);
         ClickedSpace = false;
     }
 
