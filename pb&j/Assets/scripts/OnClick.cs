@@ -29,10 +29,12 @@ public class OnClick : MonoBehaviour
                 Playing = true;
             }
             StartCoroutine(ClickedSpaceAtTheMoment());
+            Player.GetComponent<Score>().CurrentScore += 10;
         }
         if ((Input.GetKeyDown(Arrow) || Input.GetKeyDown(Letter)) && !Touching)
         {
             Player.GetComponent<Health>().CurrentHealth -= 1;
+            Player.GetComponent<Score>().CurrentScore += 5;
         }
     }
     IEnumerator ClickedSpaceAtTheMoment()
