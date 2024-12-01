@@ -6,11 +6,12 @@ public class Health : MonoBehaviour
 {
     public int CurrentHealth;
     public int MaxHealth;
-    public HealthBar healthBar;
+    public GameObject healthBarUi;
+    private HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        CurrentHealth = MaxHealth;
+        healthBar = healthBarUi.GetComponent<HealthBar>();
         healthBar.SetMaxHealth(MaxHealth);
     }
 
